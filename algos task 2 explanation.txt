@@ -1,0 +1,63 @@
+ALGOS TASK 2
+
+TASK 2-A 
+FIND THE LENGTH
+-define a function prefix_length() which takes in a string
+ - we create variables x, ans and set them to 0 initially.
+ - we check all the characters of the string and increment x by 1 if its '<' and decrement x by 1 if its '<'.
+ - if x becomes 0( perfect set of brackets) we add ans by the position of the current character which is the current length of proper prefix bracket.
+ - we check the entire string unless number of '>' exceeds '<'(x becomes -ve)
+ - we print the answer(ans)
+-we take in the number of test cases(t) and store each test case in a list(s)
+-we call the function prefix_length() for each test case
+
+TASK 2-B
+MAXIMUM POSSIBLE SUM
+-we take in the length of array A(n) and array B(b[])
+-we create a variable ans to find the maximum sum
+-B[i]>=max(A[i],A[i+1])
+  so, B[0]>=A[0]
+      B[0]=A[0] (since we are finding maximum sum)
+  similarly,
+      B[n-2]=A[n-1]
+
+-we add A[0] and A[n-1] to ans
+-for other elements,
+   since B[i]>=max(A[i],A[i+1]),
+               A[i]=min(B[i-1],B[i])
+
+-using this we find the total answer and print it
+
+TASK 2-C
+STAIRS PROBLEM
+-define a function fibonnacci() which returns the fibonacci sum of the given number
+-we take in number of stairs(n) and number of broken stairs(m)
+-for easier calculation lets assume 2 imaginary broken steps, step[-1](below 0th step) and step[n+1](above last step)
+-take in all the positions of the broken steps in b[]
+
+{the number of ways to climb n continuous stairs with 1 or 2 steps at a time is same the nth element of the fibonacci series}
+
+-using this we find the ways to climb n continuous steps between two broken steps
+-we do this every interval(every successive pair of broken steps) and multiply every value in totways(multiplication theorem)
+-totways=0 if two consecutive stairs are broken
+-we print the answer(totways)
+
+TASK 2-D
+MAXIMUM ELEMENT IN ARRAY
+-take in number of elements in array(n) and number of queries(q)
+-create a[] initially with given condition
+-for each query, take in l,r,val and update the array using given range range and val
+-finally print maximum element of a[] using max() function
+
+TASK 2-E
+MAXIMUM ELEMENT IN ARRAY-2
+-due to increase in constraint's range , we have to optimize last problem's code
+-initially create a[] with every element being 0. 
+-for each query,instead of adding val over the entire range, we can val to a[l-1] and -val to a[r]
+-to get the orginal updated list, we have to find the prefix sum list of the list we have 
+-finally we add every element of the list with its postion to meet the initial condition(a[i]=i)
+-print maximum element of a[] using max() function
+ 
+
+
+
